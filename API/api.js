@@ -12,11 +12,11 @@ export const postTrip = async (token, trip) => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
-      body: {
-        "endereco": "-10.945287,-37.048063",
-        "sentido": "PARA_CASA",
-        "usuarios_id": 3
-      }
+      body: JSON.stringify( {
+        endereco : `${trip.endereco}`,
+        sentido : `${trip.sentido}`,
+        usuarios_id: 1
+      })
     }).then((response) => response.json())
       .then((responseJson) => {
         return responseJson;
@@ -64,7 +64,8 @@ export const getOptions = async (url) => {
   }
 }
 
-export const getIdByEmail = async (email) => {
+export const getIdByEmail = async (email,token) => {
+  return 1
     let response = await fetch(`${env.API}/${email}`,      
       {
         method: 'GET',
@@ -82,5 +83,6 @@ export const getIdByEmail = async (email) => {
     .catch((error) => {
       console.error(error);
     });
+  return response
 }
 

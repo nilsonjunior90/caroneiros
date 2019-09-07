@@ -33,12 +33,11 @@ class NewTripForm extends React.Component {
       minMinutes: 0,
       maxHours: 0,
       maxMinutes: 0,
-      saida: "UFS",
+      saida: "-10.9251602,-37.1034327",
       destino: "",
       sentido: "PARA_CASA",
       car: "",
-      id: '',
-      token:'',
+      id: "1",
     };
     
     
@@ -134,10 +133,10 @@ class NewTripForm extends React.Component {
   componentDidMount(){
     ///{{API}}/usuarios?email=passageiro1@ufs.br
     let userId=''
-    userId = getIdByEmail(this.context.email)
+    userId = getIdByEmail(this.context.email,this.context.token)
+    .then(this.setState({id: 1}))
     console.log(`User Id: ${userId}`)
-    this.setState({id: userId})
-    console.log(this.state.id)
+    console.log(`User Id: ${this.state.id}`)
   }
 }
 
