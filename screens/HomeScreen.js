@@ -10,6 +10,7 @@ import {
 import { withNavigation } from 'react-navigation';
 
 import NewTripButton from '../components/NewTripButton';
+import Menu from '../components/Menu'
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -51,6 +52,7 @@ class HomeScreen extends Component {
           }} />
       </View>
       </View>
+      <Menu/>
     </View>
     );
   }
@@ -79,8 +81,9 @@ const styles = StyleSheet.create({
   homeBotoes: {
     justifyContent: 'center',
     width: '100%',
-    height: '60%',
+    height: '40%',
     backgroundColor: '#DDD',
+    marginBottom: '20%'
   },
   containerHomeBotoes:{
     justifyContent: 'center',

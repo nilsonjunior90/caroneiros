@@ -7,6 +7,7 @@ import {View,
 import { withNavigation } from 'react-navigation';
 
 import NewTripForm from '../components/NewTripForm';
+import Menu from '../components/Menu'
 
 class NovaViagemMotorista extends React.Component{
   
@@ -14,6 +15,7 @@ class NovaViagemMotorista extends React.Component{
     return (
       <View style={{paddingTop:20}}>
       <NewTripForm driver={'true'} />
+      <Menu/>
       </View>
     )
   }

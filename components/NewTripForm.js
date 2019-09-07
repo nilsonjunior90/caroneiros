@@ -23,6 +23,7 @@ import { withNavigation } from 'react-navigation';
 import CarPiker from '../components/CarPiker';
 import TimePicker from '../components/TimePiker';
 
+
 class NewTripForm extends React.Component {
   static contextType = AppContext;
   constructor(props) {
@@ -34,10 +35,10 @@ class NewTripForm extends React.Component {
       maxHours: 0,
       maxMinutes: 0,
       saida: "-10.9251602,-37.1034327",
-      destino: "",
+      endereco: "",
       sentido: "PARA_CASA",
       car: "",
-      id: "1",
+      id: "7",
     };
     
     
@@ -67,8 +68,8 @@ class NewTripForm extends React.Component {
             style={styles.input}
             placeholder="Endereço Completo"
             placeholderTextColor='#999'
-            onChangeText={(destino) => this.setState({ destino })}
-            value={this.state.destino}
+            onChangeText={(endereco) => this.setState({ endereco })}
+            value={this.state.endereco}
           />
           <Picker
           selectedValue={this.state.sentido}
@@ -126,15 +127,16 @@ class NewTripForm extends React.Component {
   }
 
   handleSubmit(trip) {
-    let tripId = postTrip(this.context.token,trip);// envia os dados para o servidor
-    this.props.navigation.navigate('Match',{tripId});
+    let tripId = postTrip(this.context.token,trip)
+    .then(this.props.navigation.navigate('Match',{tripId}))
+    //this.props.navigation.navigate('Match',{tripId});
   }
 
   componentDidMount(){
     ///{{API}}/usuarios?email=passageiro1@ufs.br
     let userId=''
     userId = getIdByEmail(this.context.email,this.context.token)
-    .then(this.setState({id: 1}))
+    .then(this.setState({id: 7}))
     console.log(`User Id: ${userId}`)
     console.log(`User Id: ${this.state.id}`)
   }

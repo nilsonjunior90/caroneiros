@@ -7,6 +7,7 @@ import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen'
 import NovaViagemMotorista from '../screens/NovaViagemMotorista'
 import NovaViagemPassageiro from '../screens/NovaViagemPassageiro'
+import MatchScreen from '../screens/MatchScreen'
 
 
 const full = Platform.select({
@@ -31,6 +32,7 @@ const HomeStack = createSwitchNavigator(
     Home: HomeScreen,
     NovaViagemMotorista: NovaViagemMotorista,
     NovaViagemPassageiro: NovaViagemPassageiro,
+    Match: MatchScreen,
   },
   header
 );

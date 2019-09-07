@@ -4,7 +4,12 @@ export const postTrip = async (token, trip) => {
   console.log("Post Trip...");
   console.log(trip);
   console.log(token);
-  console.log(`${env.API}/rotas`);
+  console.log(`*** ${env.API}/rotas`);
+  console.log(JSON.stringify( {
+    endereco : `${trip.endereco}`,
+    sentido : `${trip.sentido}`,
+    usuarios_id: 7
+  }))
   
     let result = await fetch(`${env.API}/rotas`, {
       method: 'POST',
@@ -15,7 +20,7 @@ export const postTrip = async (token, trip) => {
       body: JSON.stringify( {
         endereco : `${trip.endereco}`,
         sentido : `${trip.sentido}`,
-        usuarios_id: 1
+        usuarios_id: 7
       })
     }).then((response) => response.json())
       .then((responseJson) => {
@@ -65,7 +70,7 @@ export const getOptions = async (url) => {
 }
 
 export const getIdByEmail = async (email,token) => {
-  return 1
+  return 7
     let response = await fetch(`${env.API}/${email}`,      
       {
         method: 'GET',
