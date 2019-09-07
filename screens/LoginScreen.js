@@ -27,8 +27,8 @@ class LoginScreen extends React.Component {
     this.handleAPIHelpPress = this.handleAPIHelpPress.bind(this);
     this.state = {
       result: 'Faça login utilizando email institucinal da UFS.',
-      email: 'eve.holt@reqres.in',
-      password: 'cityslicka'
+      email: 'passageiro1@ufs.br',
+      password: '123456'
     };
   }
 
@@ -76,32 +76,31 @@ class LoginScreen extends React.Component {
     )
   }
 
-
-
   async handleLoginPress() {
     const env = require('../assets/files/environment.json');
     
-    let result = await fetch('https://reqres.in/api/login', {
+    let result = await fetch(`${env.API}/session`, {
       method: 'POST',
       headers: {
-        "Accept": 'application/json',
         "Content-Type": 'application/json',
       },
       body: JSON.stringify({
         "email": this.state.email,
         "password": this.state.password
       }),
-    }).then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson.token;
+    }).then((response) => response.text())
+    .then((responseText) => {
+      let token = ""
+      token = responseText.substr(1).slice(0,-1);
+      console.log(`Login Token: ${token}`);
+      return token;
     })
     .catch((error) => {
       console.error(error);
     });
-    console.log(result);  
     
     if (result != '') {
-     //"QpwL5tke4Pnpja7X4"
+     //"""QpwL5tke4Pnpja7X4"
      // this.context.token = result
      // this.handleLoginSucess(this.context.token)
     }

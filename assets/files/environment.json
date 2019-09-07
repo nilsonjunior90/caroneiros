@@ -1,5 +1,5 @@
 {
-	"API": "https://caroneiros-mock.herokuapp.com",
+	"API": "https://caroneirosufs.herokuapp.com",
 	"OAUTH": "https://caroneiros-mock-sign.herokuapp.com",
 	"REDIRECT": "caroneiros-mock.herokuapp.com",
 	"ID": "1",
