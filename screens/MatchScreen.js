@@ -81,7 +81,7 @@ class MatchScreen extends React.Component{
         data={this.state.matchList}
         renderItem={this.renderItem}
       />
-      <Menu></Menu>
+      <Menu/>
       </View>
     )
   }
