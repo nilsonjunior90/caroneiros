@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 }
 
-export default withNavigation(App);
+export default App;
 
 const styles = StyleSheet.create({
   container: {

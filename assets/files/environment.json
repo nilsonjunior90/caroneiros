@@ -1,0 +1,10 @@
+{
+	"API": "https://caroneiros-mock.herokuapp.com",
+	"OAUTH": "https://caroneiros-mock-sign.herokuapp.com",
+	"REDIRECT": "caroneiros-mock.herokuapp.com",
+	"ID": "1",
+	"URL": "caroneiros-mock.herokuapp.com",
+	"STATIC": "https://caroneiros-static.000webhostapp.com",
+	"CAR_LIST": "cars.json",
+	"MATCH": "match.json"
+}

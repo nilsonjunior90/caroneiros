@@ -1,14 +1,10 @@
 import * as WebBrowser from 'expo-web-browser';
-import {AuthSession} from 'expo';
 import React from 'react';
 import {
-  ScrollView,
   StyleSheet,
   Text,
-  Button,
   View,
   Dimensions,
-  Linking,
   ImageBackground,
   Image,
   TextInput,
@@ -18,12 +14,11 @@ import {
 
 
 import { withNavigation } from 'react-navigation';
-import AppLogo from '../components/AppLogo';
-import AppContext from '../context/AppContext';
+//import AppContext from '../context/AppContext';
 
 
 class LoginScreen extends React.Component {
-  static contextType = AppContext;
+  //static contextType = AppContext;
 
   constructor(props) {
     super(props);
@@ -106,9 +101,9 @@ class LoginScreen extends React.Component {
     console.log(result);  
     
     if (result != '') {
-      //"QpwL5tke4Pnpja7X4"
-      this.context.token = result
-      this.handleLoginSucess(this.context.token)
+     //"QpwL5tke4Pnpja7X4"
+     // this.context.token = result
+     // this.handleLoginSucess(this.context.token)
     }
   }
 
