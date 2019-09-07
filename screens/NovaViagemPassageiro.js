@@ -13,7 +13,7 @@ class NovaViagemPassageiro extends React.Component{
   render(){
     //const {navigation, imageName, to, title} = this.props;
     return (
-      <View >
+      <View style={{paddingTop:20}}>
       <NewTripForm driver={'false'}/>
       </View>
     )

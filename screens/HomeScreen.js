@@ -1,25 +1,27 @@
-
-import React from 'react';
-import {
-  Image,
-  StyleSheet,
+import React, { Component } from 'react';
+import { 
   Text,
+  Image,
   View,
-  Dimensions,
+  StyleSheet,
+  Dimensions 
 } from 'react-native';
+
+import { withNavigation } from 'react-navigation';
 
 import NewTripButton from '../components/NewTripButton';
 
-export default function HomeScreen() {
- //const { token } = this.props.navigation.state.params
-  state = {
-    result: null,
-  };
+class HomeScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          counter: 0,
+        };
+    }
 
-  
-
-  return (
-    <View style={styles.container}>
+  render() {
+    return (
+      <View style={styles.container}>
       <View style={styles.containerLogo}>
         <Image 
           source={require('../assets/images/logo.png')}
@@ -29,23 +31,11 @@ export default function HomeScreen() {
       </View>
       <View style={styles.homeBotoes}>
         {/* Menu Principal */}
-        <MainMenu />
-      </View>
-    </View>
-  );
- }
-
-HomeScreen.navigationOptions = {
-  header: null,
-};
-
-function MainMenu() {
-    const mainMenu = (
-      <View style={styles.containerHomeBotoes}>
+        <View style={styles.containerHomeBotoes}>
           <Text style={{padding:20, fontWeight: 'bold', fontSize: 20,}}>
             O que você deseja?
         </Text>
-        <NewTripButton 
+       <NewTripButton 
           title="Pedir Carona" 
           to='NovaViagemPassageiro'
           style={{
@@ -60,9 +50,18 @@ function MainMenu() {
               color:'white',
           }} />
       </View>
+      </View>
+    </View>
     );
-    return(mainMenu);
+  }
+
+  componentDidMount(){
+      console.log("HomeScreen")
+  }
 }
+
+export default withNavigation(HomeScreen)
+
 
 
 const styles = StyleSheet.create({

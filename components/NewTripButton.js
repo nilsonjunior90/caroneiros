@@ -8,10 +8,10 @@ import {View,
 import { withNavigation } from 'react-navigation';
 
 class NewTripButton extends React.Component{
+
   
   render(){
     const {navigation, to, title, style} = this.props;
-
     return (
       <View >
       <TouchableHighlight 
@@ -24,13 +24,6 @@ class NewTripButton extends React.Component{
       </View>
     )
   }
-
- // token= {this.state.token}
-
-  componentDidMount() {
-    //this.props.navigation.navigate('NovaViagemMotorista')
-  }
-  
 }
 
 export default withNavigation(NewTripButton);

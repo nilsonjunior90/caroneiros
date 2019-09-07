@@ -14,11 +14,11 @@ import {
 
 
 import { withNavigation } from 'react-navigation';
-//import AppContext from '../context/AppContext';
+import AppContext from '../context/AppContext';
 
 
 class LoginScreen extends React.Component {
-  //static contextType = AppContext;
+  static contextType = AppContext;
 
   constructor(props) {
     super(props);
@@ -78,7 +78,6 @@ class LoginScreen extends React.Component {
 
   async handleLoginPress() {
     const env = require('../assets/files/environment.json');
-    
     let result = await fetch(`${env.API}/session`, {
       method: 'POST',
       headers: {
@@ -98,11 +97,11 @@ class LoginScreen extends React.Component {
     .catch((error) => {
       console.error(error);
     });
-    
-    if (result != '') {
-     //"""QpwL5tke4Pnpja7X4"
-     // this.context.token = result
-     // this.handleLoginSucess(this.context.token)
+
+    //console.log(result.length)//167
+
+    if (result.length > 150) {
+      this.handleLoginSucess(result)
     }
   }
 
@@ -112,6 +111,9 @@ class LoginScreen extends React.Component {
 
   async handleLoginSucess(token) {
     console.log("LoginSucess")
+    this.context.token = token
+    console.log(this.context.token)
+    this.context.email = this.state.email
     this.props.navigation.navigate('Home'); 
     //{this.props.navigation.state.params.token}
   }
@@ -123,7 +125,7 @@ class LoginScreen extends React.Component {
   }
 
   componentDidMount() {
-    //pular para 'Home'
+    console.log("LoginScreen")
     //this.props.navigation.navigate('Home')
   }
 

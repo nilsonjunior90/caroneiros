@@ -3,29 +3,39 @@ import { Platform } from 'react-native';
 import { createSwitchNavigator } from 'react-navigation';
 
 
-import LoginScreen from '../screens/LoginScreen.js';
-import MainTabNavigator from '../navigation/MainTabNavigator.js';
+import LoginScreen from '../screens/LoginScreen';
+import HomeScreen from '../screens/HomeScreen'
+import NovaViagemMotorista from '../screens/NovaViagemMotorista'
+import NovaViagemPassageiro from '../screens/NovaViagemPassageiro'
 
 
-const config = Platform.select({
+const full = Platform.select({
   default: {headerMode: 'screen'},
+});
+
+const header = Platform.select({
+  default: {},
 });
 
 const LoginStack = createSwitchNavigator(
   {
     Login: LoginScreen,
   },
-  config
+  full
 );
 
 LoginStack.path = '';
 
 const HomeStack = createSwitchNavigator(
   {
-    Home: MainTabNavigator, 
+    Home: HomeScreen,
+    NovaViagemMotorista: NovaViagemMotorista,
+    NovaViagemPassageiro: NovaViagemPassageiro,
   },
-  config
+  header
 );
+
+HomeStack.path = '';
 
 const navigator = createSwitchNavigator({
   LoginStack,

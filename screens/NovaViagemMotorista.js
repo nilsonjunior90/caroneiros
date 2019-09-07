@@ -12,7 +12,7 @@ class NovaViagemMotorista extends React.Component{
   
   render(){
     return (
-      <View >
+      <View style={{paddingTop:20}}>
       <NewTripForm driver={'true'} />
       </View>
     )
