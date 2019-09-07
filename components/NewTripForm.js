@@ -38,6 +38,7 @@ class NewTripForm extends React.Component {
       sentido: "PARA_CASA",
       car: "",
       id: '',
+      token:'',
     };
     
     

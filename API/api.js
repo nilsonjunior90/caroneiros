@@ -3,23 +3,23 @@ const env = require('../assets/files/environment.json');
 export const postTrip = async (token, trip) => {
   console.log("Post Trip...");
   console.log(trip);
+  console.log(token);
   console.log(`${env.API}/rotas`);
   
     let result = await fetch(`${env.API}/rotas`, {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`,
       },
       body: {
-        'endereco': `'${trip.destino}'`,
-        'sentido': `'${trip.sentido}'`,
-        'usuarios_id': `'${trip.user}'`
-      },
+        "endereco": "-10.945287,-37.048063",
+        "sentido": "PARA_CASA",
+        "usuarios_id": 3
+      }
     }).then((response) => response.json())
       .then((responseJson) => {
-        return responseJson.id;
+        return responseJson;
       })
       .catch((error) => {
         console.error(error);
